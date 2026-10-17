@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golden Lotus | Bijuterii</title>
+<style>
+:root{--bg:#11100e;--panel:#201d18;--gold:#d8b56b;--text:#f7f0e4;--muted:#b5ad9e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{padding:20px 6%;border-bottom:1px solid #393329;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font:26px Georgia,serif;letter-spacing:2px;color:var(--gold)}
+button,select,input{font:inherit}
+button{background:var(--gold);color:#17130b;border:1px solid var(--gold);padding:11px 15px;border-radius:5px;cursor:pointer}
+select,input{background:var(--panel);color:var(--text);border:1px solid #393329;padding:12px;border-radius:5px;min-width:0}
+.outline{background:transparent;color:var(--gold)}
+.hero{padding:55px 6%;background:linear-gradient(120deg,#252016,#11100e)}
+.hero small{letter-spacing:4px;color:var(--gold)}
+h1{font:clamp(40px,7vw,68px) Georgia,serif;font-weight:normal;margin:20px 0}
+h1 em{color:var(--gold)}
+.hero p{color:var(--muted);line-height:1.8;max-width:600px}
+main{max-width:1200px;margin:auto;padding:30px 20px 60px}
+h2{font:30px Georgia,serif;font-weight:normal}
+.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:22px 0}
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.chip{background:transparent;color:var(--muted);border:1px solid #393329;border-radius:25px;padding:9px 13px}
+.chip.active{color:var(--gold);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.card{background:var(--panel);border:1px solid #393329;border-radius:7px;overflow:hidden}
+.photo{height:210px;background:#29241c}
+.photo img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:14px}
+.kind{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:2px}
+.card h3{font:20px Georgia,serif;font-weight:normal}
+.price{color:var(--gold);font-size:20px;font-weight:bold}
+.muted{color:var(--muted);font-size:13px;line-height:1.6}
+#adminPanel{display:none;margin-top:35px;padding:20px;border:1px solid var(--gold);background:var(--panel)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form label{font-size:12px;color:var(--muted)}
+.form input,.form select{width:100%;margin-top:6px}
+.full{grid-column:1/-1}
+.adminrow{padding:12px 0;border-bottom:1px solid #393329;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.branches{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:40px}
+.branch{padding:20px;border:1px solid #393329;background:var(--panel)}
+.branch h3{color:var(--gold);font:24px Georgia,serif}
+footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid #393329}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{grid-template-columns:1fr}.hero{padding:40px 20px}}
+@media(max-width:450px){header{padding:14px}.logo{font-size:19px}.grid{gap:9px}.photo{height:145px}.card-body{padding:9px}.card h3{font-size:16px}.price{font-size:16px}.branches,.form{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GOLDEN LOTUS</div>
+  <button class="outline" id="adminToggle">Administrare</button>
+</header>
+
+<section class="hero">
+  <small>AUR · ARGINT · BIJUTERII</small>
+  <h1>Frumusețe care<br><em>rămâne.</em></h1>
+  <p>Descoperă colecția Golden Lotus. Bijuterii elegante pentru momente speciale.</p>
+  <button onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Vezi colecția</button>
+</section>
+
+<main id="catalog">
+  <h2>Catalogul nostru</h2>
+  <p class="muted" id="branchInfo"></p>
+
+  <div class="toolbar">
+    <input id="search" placeholder="Caută bijuterii...">
+    <select id="branch">
+      <option value="C">Filiala Călărași</option>
+      <option value="S">Filiala Strășeni</option>
+    </select>
+    <select id="sort">
+      <option value="default">Sortare implicită</option>
+      <option value="low">Preț crescător</option>
+      <option value="high">Preț descrescător</option>
+      <option value="new">Cele mai noi</option>
+    </select>
+  </div>
+
+  <div class="categories" id="categories"></div>
+  <div class="grid" id="products"></div>
+
+  <section class="branches">
+    <div class="branch">
+      <h3>Golden Lotus · Călărași</h3>
+      <p class="muted">Produse și prețuri pentru filiala Călărași.</p>
+      <button class="outline" onclick="setBranch('C')">Vezi produsele</button>
+    </div>
+    <div class="branch">
+      <h3>Golden Lotus · Strășeni</h3>
+      <p class="muted">Produse și prețuri pentru filiala Strășeni.</p>
+      <button class="outline" onclick="setBranch('S')">Vezi produsele</button>
+    </div>
+  </section>
+
+  <section id="adminPanel">
+    <h2>Administrare produse</h2>
+    <p class="muted">Adaugă bijuterii și stabilește prețul pentru fiecare filială.</p>
+    <form id="productForm">
+      <input type="hidden" id="editId">
+      <div class="form">
+        <label>Denumirea produsului<input id="name" required></label>
+        <label>Categoria
+          <select id="category">
+            <option>Aur</option><option>Argint</option><option>Inele</option>
+            <option>Cercei</option><option>Lanțuri</option><option>Brățări</option>
+            <option>Coliere</option><option>Seturi</option><option>Altele</option>
+          </select>
+        </label>
+        <label>Preț Călărași (MDL)<input id="priceC" type="number" min="0" step=".01" required></label>
+        <label>Preț Strășeni (MDL)<input id="priceS" type="number" min="0" step=".01" required></label>
+        <label class="full">Fotografie — adresă URL<input id="image" type="url" required></label>
+        <label class="full">Descriere<input id="description"></label>
+        <label class="full"><span><input id="isNew" type="checkbox" style="width:auto"> Produs nou</span></label>
+      </div>
+      <p><button type="submit">Salvează produsul</button> <button type="button" class="outline" id="cancel">Anulează</button></p>
+    </form>
+    <h2>Produse existente</h2>
+    <div id="adminProducts"></div>
+    <p class="muted">Atenție: aceasta este o demonstrație locală. Administrarea nu este protejată cu parolă, iar datele nu se sincronizează între dispozitive.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">GOLDEN LOTUS</div>
+  Aur · Argint · Bijuterii<br>
+  Călărași · Strășeni<br>
+  Prețurile sunt afișate în lei moldovenești (MDL).
+</footer>
+
+<script>
+const KEY="goldenLotusCatalog";
+const demo=[
+{id:"1",name:"Inel Elegant",category:"Aur",priceC:2850,priceS:2890,image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80",description:"Model demonstrativ. Înlocuiește cu produsul real.",isNew:true},
+{id:"2",name:"Cercei Clasici",category:"Cercei",priceC:1950,priceS:1890,image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",description:"Model demonstrativ. Înlocuiește cu produsul real.",isNew:true},
+{id:"3",name:"Colier Silver",category:"Argint",priceC:780,priceS:820,image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=600&q=80",description:"Model demonstrativ. Înlocuiește cu produsul real.",isNew:false},
+{id:"4",name:"Brățară Elegantă",category:"Brățări",priceC:1250,priceS:1190,image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80",description:"Model demonstrativ. Înlocuiește cu produsul real.",isNew:false}
+];
+function load(){
+ try{const d=localStorage.getItem(KEY);return d===null?demo.map(x=>({...x})):JSON.parse(d)}
+ catch(e){return demo.map(x=>({...x}))}
+}
+let items=load(),active="Toate",admin=false;
+const $=id=>document.getElementById(id);
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function money(v){return Number(v).toLocaleString("ro-MD",{style:"currency",currency:"MDL"})}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(items));return true}catch(e){alert("Nu s-au putut salva datele.");return false}}
+const cats=["Toate","Noutăți","Aur","Argint","Inele","Cercei","Lanțuri","Brățări","Coliere","Seturi","Altele"];
+function renderCats(){
+ $("categories").innerHTML=cats.map(c=>`<button class="chip ${c===active?"active":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+ $("categories").querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{active=b.dataset.cat;renderCats();render()});
+}
+function render(){
+ const b=$("branch").value,q=$("search").value.trim().toLowerCase();
+ let list=items.filter(p=>(active==="Toate"||(active==="Noutăți"?p.isNew:p.category===active))&&(p.name+" "+p.category+" "+(p.description||"")).toLowerCase().includes(q));
+ if($("sort").value==="low")list.sort((a,b)=>a["price"+$("branch").value]-b["price"+$("branch").value]);
+ if($("sort").value==="high")list.sort((a,b)=>b["price"+$("branch").value]-a["price"+$("branch").value]);
+ if($("sort").value==="new")list.sort((a,b)=>Number(b.isNew)-Number(a.isNew));
+ $("branchInfo").textContent="Filiala "+(b==="C"?"Călărași":"Strășeni")+" · "+list.length+" produse";
+ $("products").innerHTML=list.length?list.map(p=>`
+ <article class="card"><div class="photo">
+ <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.display='none'">
+ ${p.isNew?'<span class="tag">NOUTATE</span>':""}</div>
+ <div class="card-body"><div class="kind">${esc(p.category)}</div>
+ <h3>${esc(p.name)}</h3><div class="muted">${esc(p.description||"Bijuterie Golden Lotus")}</div>
+ <div class="price">${money(p["price"+b])}</div>
+ <div class="muted">${b==="C"?"Călărași":"Strășeni"}</div>
+ ${admin?`<div class="card-actions"><button class="outline" data-edit="${esc(p.id)}">Editează</button><button data-delete="${esc(p.id)}">Șterge</button></div>`:""}
+ </div></article>`).join(""):'<div class="empty">Nu am găsit produse.</div>';
+ $("products").querySelectorAll("[data-edit]").forEach(x=>x.onclick=()=>edit(x.dataset.edit));
+ $("products").querySelectorAll("[data-delete]").forEach(x=>x.onclick=()=>remove(x.dataset.delete));
+ renderAdmin();
+}
+function renderAdmin(){
+ if(!admin)return;
+ $("adminProducts").innerHTML=items.map(p=>`<div class="adminrow">
+ <span>${esc(p.name)}<br><small class="muted">Călărași: ${money(p.priceC)} · Strășeni: ${money(p.priceS)}</small></span>
+ <button class="outline" data-edit="${esc(p.id)}">Editează</button>
+ </div>`).join("")||'<p class="muted">Catalogul este gol.</p>';
+ $("adminProducts").querySelectorAll("[data-edit]").forEach(x=>x.onclick=()=>edit(x.dataset.edit));
+}
+function setBranch(b){$("branch").value=b;render();$("catalog").scrollIntoView({behavior:"smooth"})}
+function edit(id){
+ const p=items.find(x=>x.id===id);if(!p)return;
+ $("editId").value=p.id;$("name").value=p.name;$("category").value=p.category;
+ $("priceC").value=p.priceC;$("priceS").value=p.priceS;
+ $("image").value=p.image;$("description").value=p.description||"";
+ $("isNew").checked=!!p.isNew;$("productForm").scrollIntoView({behavior:"smooth"});
+}
+function remove(id){
+ if(!confirm("Ștergi acest produs?"))return;
+ items=items.filter(p=>p.id!==id);persist();render();
+}
+$("adminToggle").onclick=()=>{
+ if(!admin){
+  alert("Prototip demonstrativ: administrarea nu este protejată. Nu publica acest panou fără autentificare.");
+  admin=true;
+  $("adminPanel").style.display="block";
+  $("adminToggle").textContent="Închide administrarea";
+ }else{
+  admin=false;$("adminPanel").style.display="none";
+  $("adminToggle").textContent="Administrare";
+ }
+ render();
+};
+$("productForm").onsubmit=e=>{
+ e.preventDefault();
+ const old=items.find(p=>p.id===$("editId").value);
+ const p={
+  id:old?old.id:String(Date.now()),
+  name:$("name").value.trim(),category:$("category").value,
+  priceC:Number($("priceC").value),priceS:Number($("priceS").value),
+  image:$("image").value.trim(),description:$("description").value.trim(),
+  isNew:$("isNew").checked
+ };
+ if(!p.name||!p.image||p.priceC<0||p.priceS<0)return;
+ if(old)items=items.map(x=>x.id===old.id?p:x);else items.unshift(p);
+ if(persist()){e.target.reset();$("editId").value="";renderCats();render()}
+};
+$("cancel").onclick=()=>{$("productForm").reset();$("editId").value=""};
+$("search").addEventListener("input",render);
+$("branch").addEventListener("change",render);
+$("sort").addEventListener("change",render);
+renderCats();render();
+</script>
+</body>
+</html>
