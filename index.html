@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GOLDEN LOTUS | Bijuterii din Aur și Argint</title>
+
+    <meta name="description"
+          content="Descoperă colecția GOLDEN LOTUS de bijuterii din aur și argint. Vizitează filialele noastre din Călărași și Strășeni.">
+
+    <style>
+        /* =========================
+           1. CULORILE ȘI STILUL
+        ========================= */
+
+        :root {
+            --bej: #F5EFE6;
+            --bej-inchis: #E8DCCB;
+            --auriu: #C5A15B;
+            --auriu-inchis: #9E7938;
+            --alb: #FFFFFF;
+            --maro: #514334;
+            --gri: #817568;
+            --bordura: #E8DED0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #FFFDFA;
+            color: var(--maro);
+            line-height: 1.6;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           2. BARA DE SUS
+        ========================= */
+
+        .top-bar {
+            background: var(--bej-inchis);
+            color: #705B3B;
+            padding: 9px 5%;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           3. ANTETUL SITE-ULUI
+        ========================= */
+
+        header {
+            min-height: 85px;
+            background: var(--alb);
+            border-bottom: 1px solid var(--bordura);
+            padding: 15px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .logo {
+            color: var(--auriu-inchis);
+            font-family: Georgia, serif;
+            font-size: 25px;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            display: block;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            letter-spacing: 5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--auriu-inchis);
+        }
+
+        .admin-button {
+            background: var(--auriu);
+            color: white;
+            padding: 11px 17px;
+            border: none;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .admin-button:hover {
+            background: var(--auriu-inchis);
+        }
+
+        /* =========================
+           4. PAGINA PRINCIPALĂ
+        ========================= */
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 540px;
+            background: var(--bej);
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 65px 12%;
+        }
+
+        .subtitlu {
+            color: var(--auriu-inchis);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: clamp(42px, 5vw, 68px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 em {
+            color: var(--auriu-inchis);
+        }
+
+        .hero p {
+            color: var(--gri);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            max-width: 420px;
+        }
+
+        .buton-auriu {
+            display: inline-block;
+            padding: 14px 24px;
+            background: var(--auriu);
+            color: white;
+            border: 1px solid var(--auriu);
+            transition: 0.3s;
+            font-size: 13px;
+        }
+
+        .buton-auriu:hover {
+            background: var(--auriu-inchis);
+            border-color: var(--auriu-inchis);
+        }
+
+        .hero-image {
+            min-height: 400px;
+            background:
+                linear-gradient(
+                    rgba(80, 55, 30, 0.08),
+                    rgba(80, 55, 30, 0.08)
+                ),
+                url("https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=85")
+                center / cover no-repeat;
+        }
+
+        /* =========================
+           5. BENEFICII
+        ========================= */
+
+        .beneficii {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px 5%;
+            background: white;
+            border-bottom: 1px solid var(--bordura);
+        }
+
+        .beneficiu {
+            color: #79664A;
+            font-size: 13px;
+        }
+
+        /* =========================
+           6. CATALOGUL DE PRODUSE
+        ========================= */
+
+        .sectiune {
+            padding: 80px 7%;
+        }
+
+        .titlu-sectiune {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titlu-sectiune h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: normal;
+            margin: 12px 0;
+        }
+
+        .titlu-sectiune p {
+            color: var(--gri);
+            font-size: 13px;
+        }
+
+        /* Căutare și filtre */
+
+        .filtre {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .filtre input,
+        .filtre select {
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid var(--bordura);
+            background: white;
+            color: var(--maro);
+        }
+
+        .filtre input {
+            flex: 1;
+        }
+
+        .categorii {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .categorie {
+            background: white;
+            border: 1px solid var(--bordura);
+            padding: 10px 17px;
+            color: var(--maro);
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .categorie:hover,
+        .categorie.activ {
+            background: var(--bej);
+            border-color: var(--auriu);
+            color: var(--auriu-inchis);
+        }
+
+        /* Produse */
+
+        .produse {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 25px 18px;
+        }
+
+        .produs {
+            background: white;
+            border: 1px solid #F1EBE2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 0;
+        }
+
+        .produs:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(80, 60, 30, 0.08);
+        }
+
+        .produs-imagine {
+            position: relative;
+            height: 260px;
+            background: var(--bej);
+            overflow: hidden;
+        }
+
+        .produs-imagine img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .produs:hover .produs-imagine img {
+            transform: scale(1.04);
+        }
+
+        .eticheta {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: white;
+            color: var(--auriu-inchis);
+            padding: 6px 10px;
+            font-size: 10px;
+        }
+
+        .produs-info {
+            padding: 18px 15px;
+        }
+
+        .produs-categorie {
+            color: var(--auriu-inchis);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .produs-info h3 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: 19px;
+            margin: 8px 0;
+        }
+
+        .produs-descriere {
+            font-size: 12px;
+            color: var(--gri);
+            margin-bottom: 12px;
+        }
+
+        .produs-pret {
+            color: var(--maro);
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 13px;
+        }
+
+        .detalii-button {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid var(--auriu);
+            color: var(--auriu-inchis);
+            transition: 0.3s;
+        }
+
+        .detalii-button:hover {
+            background: var(--auriu);
+            color: white;
+        }
+
+        .fara-produse {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px 15px;
+            color: var(--gri);
+        }
+
+        /* =========================
+           7. FILIALE
+        ========================= */
+
+        .filiale {
+            background: var(--bej);
+        }
+
+        .filiale-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .filiala {
+            background: white;
+            border: 1px solid var(--bordura);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .filiala .simbol {
+            color: var(--auriu);
+            font-size: 35px;
+        }
+
+        .filiala h3 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .filiala p {
+            color: var(--gri);
+            font-size: 13px;
+            margin: 8px 0;
+        }
+
+        /* =========================
+           8. CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+            background: white;
+        }
+
+        .contact h2 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: var(--gri);
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           9. SUBSOL
+        ========================= */
+
+        footer {
+            background: #F2E8D9;
+            padding: 35px 6%;
+            text-align: center;
+            color: #79664A;
+        }
+
+        footer .logo {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 12px;
+            margin: 8px 0;
+        }
+
+        /* =========================
+           10. FERESTRE MODALE
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(40, 30, 20, 0.65);
+            padding: 20px;
+            overflow-y: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.activ {
+            display: flex;
+        }
+
+        .modal-continut {
+            position: relative;
+            background: white;
+            padding: 35px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .inchide {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            color: var(--maro);
+        }
+
+        .modal-continut h2 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .modal-continut label {
+            display: block;
+            font-size: 12px;
+            margin: 15px 0 6px;
+        }
+
+        .modal-continut input,
+        .modal-continut select,
+        .modal-continut textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--bordura);
+            background: white;
+        }
+
+        .modal-continut textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .modal-continut .buton-auriu {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .mesaj {
+            margin: 15px 0;
+            font-size: 13px;
+            color: var(--auriu-inchis);
+        }
+
+        .admin-lista {
+            margin-top: 30px;
+        }
+
+        .admin-produs {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--bordura);
+            font-size: 12px;
+        }
+
+        .admin-produs button {
+            padding: 7px 10px;
+            border: 1px solid var(--bordura);
+            background: white;
+            color: var(--maro);
+            margin-left: 4px;
+        }
+
+        .admin-produs .sterge {
+            color: #A33A3A;
+        }
+
+        /* =========================
+           11. RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .produse {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .produs-imagine {
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                padding: 55px 7%;
+            }
+
+            .hero-image {
+                min-height: 330px;
+            }
+
+            .beneficii {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px 8%;
+            }
+
+            .sectiune {
+                padding: 55px 5%;
+            }
+
+            .produse {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px 10px;
+            }
+
+            .produs-imagine {
+                height: 190px;
+            }
+
+            .produs-info {
+                padding: 13px 10px;
+            }
+
+            .produs-info h3 {
+                font-size: 16px;
+            }
+
+            .filtre {
+                flex-direction: column;
+            }
+
+            .filtre input,
+            .filtre select {
+                width: 100%;
+                min-height: 45px;
+            }
+
+            .filiale-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filiala {
+                padding: 30px 20px;
+            }
+
+            .contact h2 {
+                font-size: 30px;
+            }
+
+            .modal-continut {
+                padding: 30px 20px;
+            }
+
+            .admin-produs {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .produse {
+                grid-template-columns: 1fr;
+            }
+
+            .produs-imagine {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ANTET -->
+
+    <div class="top-bar">
+        Bijuterii din aur și argint · Eleganță în fiecare detaliu
+    </div>
+
+    <header>
+        <a href="#acasa" class="logo">
+            GOLDEN LOTUS
+            <span>FINE JEWELRY</span>
+        </a>
+
+        <nav>
+            <a href="#acasa">Acasă</a>
+            <a href="#produse">Colecție</a>
+            <a href="#filiale">Filialele noastre</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="admin-button" onclick="deschideAdministrare()">
+            Administrare
+        </button>
+    </header>
+
+    <!-- PAGINA PRINCIPALĂ -->
+
+    <main>
+
+        <section class="hero" id="acasa">
+
+            <div class="hero-text">
+
+                <div class="subtitlu">
+                    Colecții cu eleganță
+                </div>
+
+                <h1>
+                    Frumusețea<br>
+                    care <em>rămâne.</em>
+                </h1>
+
+                <p>
+                    Descoperă universul GOLDEN LOTUS, unde aurul,
+                    argintul și frumusețea se întâlnesc pentru a crea
+                    bijuterii deosebite pentru fiecare moment special.
+                </p>
+
+                <a href="#produse" class="buton-auriu">
+                    Descoperă colecția →
+                </a>
+
+            </div>
+
+            <div class="hero-image"></div>
+
+        </section>
+
+        <!-- BENEFICII -->
+
+        <section class="beneficii">
+
+            <div class="beneficiu">
+                ✧ Bijuterii din aur și argint
+            </div>
+
+            <div class="beneficiu">
+                ✧ Modele elegante
+            </div>
+
+            <div class="beneficiu">
+                ✧ Două filiale pentru tine
+            </div>
+
+        </section>
+
+        <!-- CATALOG -->
+
+        <section class="sectiune" id="produse">
+
+            <div class="titlu-sectiune">
+
+                <div class="subtitlu">
+                    Colecția GOLDEN LOTUS
+                </div>
+
+                <h2>
+                    Bijuterii care te reprezintă
+                </h2>
+
+                <p>
+                    Alege piesa care îți completează stilul.
+                </p>
+
+            </div>
+
+            <div class="filtre">
+
+                <input
+                    type="search"
+                    id="cautare"
+                    placeholder="Caută un produs..."
+                    oninput="afiseazaProduse()"
+                >
+
+                <select
+                    id="filtruMaterial"
+                    onchange="afiseazaProduse()"
+                >
+                    <option value="">Aur și argint</option>
+                    <option value="Aur">Aur</option>
+                    <option value="Argint">Argint</option>
+                </select>
+
+            </div>
+
+            <div class="categorii" id="categorii"></div>
+
+            <div class="produse" id="listaProduse"></div>
+
+        </section>
+
+        <!-- FILIALE -->
+
+        <section class="sectiune filiale" id="filiale">
+
+            <div class="titlu-sectiune">
+
+                <div class="subtitlu">
+                    Suntem aproape de tine
+                </div>
+
+                <h2>
+                    Filialele noastre
+                </h2>
+
+                <p>
+                    Te așteptăm să descoperi colecția GOLDEN LOTUS.
+                </p>
+
+            </div>
+
+            <div class="filiale-grid">
+
+                <article class="filiala">
+                    <div class="simbol">♧</div>
+                    <h3>Călărași</h3>
+                    <p>Filiala GOLDEN LOTUS</p>
+                    <p>Adresa: de completat</p>
+                    <p>Telefon: de completat</p>
+                    <p>Program: de completat</p>
+                </article>
+
+                <article class="filiala">
+                    <div class="simbol">♧</div>
+                    <h3>Strășeni</h3>
+                    <p>Filiala GOLDEN LOTUS</p>
+                    <p>Adresa: de completat</p>
+                    <p>Telefon: de completat</p>
+                    <p>Program: de completat</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+
+        <section class="sectiune contact" id="contact">
+
+            <div class="subtitlu">
+                GOLDEN LOTUS
+            </div>
+
+            <h2>
+                Bijuteria potrivită te așteaptă.
+            </h2>
+
+            <p>
+                Contactează-ne pentru detalii despre produse și disponibilitate.
+            </p>
+
+            <a href="#filiale" class="buton-auriu">
+                Descoperă filialele
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- SUBSOL -->
+
+    <footer>
+
+        <div class="logo">
+            GOLDEN LOTUS
+            <span>FINE JEWELRY</span>
+        </div>
+
+        <p>Eleganță în fiecare detaliu.</p>
+
+        <p>
+            © <span id="an"></span> GOLDEN LOTUS.
+            Toate drepturile rezervate.
+        </p>
+
+    </footer>
+
+    <!-- FEREASTRA DE ADMINISTRARE -->
+
+    <div class="modal" id="modalAdmin">
+
+        <div class="modal-continut">
+
+            <button class="inchide"
+                    onclick="inchideAdministrare()">
+                &times;
+            </button>
+
+            <h2>Administrare produse</h2>
+
+            <p>
+                Această versiune demo permite administrarea locală
+                a catalogului pe dispozitivul curent.
+            </p>
+
+            <form id="formularProdus">
+
+                <input type="hidden" id="produsId">
+
+                <label for="numeProdus">
+                    Denumirea bijuteriei
+                </label>
+
+                <input
+                    id="numeProdus"
+                    type="text"
+                    placeholder="Ex.: Inel din aur"
+                    required
+                >
+
+                <label for="materialProdus">
+                    Material
+                </label>
+
+                <select id="materialProdus">
+                    <option value="Aur">Aur</option>
+                    <option value="Argint">Argint</option>
+                </select>
+
+                <label for="categorieProdus">
+                    Categoria
+                </label>
+
+                <select id="categorieProdus">
+                    <option value="Inele">Inele</option>
+                    <option value="Cercei">Cercei</option>
+                    <option value="Lanțuri">Lanțuri</option>
+                    <option value="Brățări">Brățări</option>
+                    <option value="Pandantive">Pandantive</option>
+                    <option value="Seturi">Seturi</option>
+                    <option value="Altele">Altele</option>
+                </select>
+
+                <label for="pretProdus">
+                    Preț (lei)
+                </label>
+
+                <input
+                    id="pretProdus"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex.: 2500"
+                    required
+                >
+
+                <label for="descriereProdus">
+                    Descriere
+                </label>
+
+                <textarea
+                    id="descriereProdus"
+                    placeholder="Descrierea bijuteriei..."
+                ></textarea>
+
+                <label for="imagineProdus">
+                    Adresa fotografiei (URL)
+                </label>
+
+                <input
+                    id="imagineProdus"
+                    type="url"
+                    placeholder="https://exemplu.md/imagine.jpg"
+                >
+
+                <label for="greutateProdus">
+                    Greutate (grame)
+                </label>
+
+                <input
+                    id="greutateProdus"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex.: 2.50"
+                >
+
+                <label for="probaProdus">
+                    Proba aurului sau argintului
+                </label>
+
+                <input
+                    id="probaProdus"
+                    type="text"
+                    placeholder="Ex.: 585 sau 925"
+                >
+
+                <label for="filialaProdus">
+                    Filiala în care este disponibil
+                </label>
+
+                <select id="filialaProdus">
+                    <option value="Ambele">Ambele filiale</option>
+                    <option value="Călărași">Călărași</option>
+                    <option value="Strășeni">Strășeni</option>
+                </select>
+
+                <button class="buton-auriu" type="submit">
+                    Salvează produsul
+                </button>
+
+                <button
+                    class="buton-auriu"
+                    type="button"
+                    onclick="reseteazaFormular()"
+                    style="background:white;color:#9E7938"
+                >
+                    Anulează editarea
+                </button>
+
+            </form>
+
+            <div class="mesaj" id="mesajAdmin"></div>
+
+            <div class="admin-lista">
+                <h3>Produse existente</h3>
+                <div id="listaAdmin"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+        /* =========================
+           1. DATELE PRODUSELOR
+        ========================= */
+
+        const produseInitiale = [
+            {
+                id: 1,
+                nume: "Inel Elegant",
+                material: "Aur",
+                categorie: "Inele",
+                pret: 3500,
+                descriere: "Inel elegant din aur, potrivit pentru momente speciale.",
+                imagine: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80",
+                greutate: "2.10",
+                proba: "585",
+                filiala: "Ambele"
+            },
+            {
+                id: 2,
+                nume: "Cercei Delicați",
+                material: "Aur",
+                categorie: "Cercei",
+                pret: 2800,
+                descriere: "Cercei cu un design delicat și elegant.",
+                imagine: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80",
+                greutate: "1.80",
+                proba: "585",
+                filiala: "Călărași"
+            },
+            {
+                id: 3,
+                nume: "Colier Elegant",
+                material: "Aur",
+                categorie: "Lanțuri",
+                pret: 4200,
+                descriere: "Colier elegant, ideal pentru o ținută rafinată.",
+                imagine: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",
+                greutate: "3.20",
+                proba: "585",
+                filiala: "Strășeni"
+            },
+            {
+                id: 4,
+                nume: "Brățară Modernă",
+                material: "Argint",
+                categorie: "Brățări",
+                pret: 950,
+                descriere: "Brățară din argint cu un stil modern și versatil.",
+                imagine: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=80",
+                greutate: "5.50",
+                proba: "925",
+                filiala: "Ambele"
+            },
+            {
+                id: 5,
+                nume: "Inel Clasic",
+                material: "Argint",
+                categorie: "Inele",
+                pret: 750,
+                descriere: "Inel clasic, simplu și elegant.",
+                imagine: "https://images.unsplash.com/photo-1603561596112-db4f2c8b3d87?auto=format&fit=crop&w=700&q=80",
+                greutate: "3.00",
+                proba: "925",
+                filiala: "Călărași"
+            },
+            {
+                id: 6,
+                nume: "Set Elegant",
+                material: "Aur",
+                categorie: "Seturi",
+                pret: 6800,
+                descriere: "Set de bijuterii cu un design armonios.",
+                imagine: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=80",
+                greutate: "5.20",
+                proba: "585",
+                filiala: "Ambele"
+            },
+            {
+                id: 7,
+                nume: "Pandantiv Delicat",
+                material: "Argint",
+                categorie: "Pandantive",
+                pret: 550,
+                descriere: "Pandantiv delicat, potrivit pentru purtarea zilnică.",
+                imagine: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=700&q=80",
+                greutate: "2.00",
+                proba: "925",
+                filiala: "Strășeni"
+            },
+            {
+                id: 8,
+                nume: "Cercei Clasici",
+                material: "Argint",
+                categorie: "Cercei",
+                pret: 680,
+                descriere: "Cercei clasici, ușor de asortat cu orice ținută.",
+                imagine: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=80",
+                greutate: "2.40",
+                proba: "925",
+                filiala: "Călărași"
+            }
+        ];
+
+        /*
+          Produsele demo sunt salvate în localStorage.
+          Astfel, modificările rămân în browserul curent.
+        */
+
+        let produse = incarcaProduse();
+
+        let categorieSelectata = "Toate";
+
+        function incarcaProduse() {
+            try {
+                const salvate = localStorage.getItem("goldenLotusProduse");
+
+                if (salvate !== null) {
+                    const date = JSON.parse(salvate);
+
+                    if (Array.isArray(date)) {
+                        return date;
+                    }
+                }
+            } catch (eroare) {
+                console.error("Nu s-au putut încărca produsele.", eroare);
+            }
+
+            return produseInitiale.map(produs => ({ ...produs }));
+        }
+
+        function salveazaProduse() {
+            try {
+                localStorage.setItem(
+                    "goldenLotusProduse",
+                    JSON.stringify(produse)
+                );
+
+                return true;
+            } catch (eroare) {
+                console.error("Nu s-au putut salva produsele.", eroare);
+
+                alert(
+                    "Produsele nu au putut fi salvate. Verifică spațiul disponibil în browser."
+                );
+
+                return false;
+            }
+        }
+
+        /* =========================
+           2. CATEGORII
+        ========================= */
+
+        const categorii = [
+            "Toate",
+            "Inele",
+            "Cercei",
+            "Lanțuri",
+            "Brățări",
+            "Pandantive",
+            "Seturi",
+            "Altele"
+        ];
+
+        function afiseazaCategorii() {
+            const container = document.getElementById("categorii");
+
+            container.innerHTML = "";
+
+            categorii.forEach(categorie => {
+                const buton = document.createElement("button");
+
+                buton.className =
+                    "categorie" +
+                    (categorie === categorieSelectata ? " activ" : "");
+
+                buton.textContent = categorie;
+
+                buton.onclick = () => {
+                    categorieSelectata = categorie;
+                    afiseazaCategorii();
+                    afiseazaProduse();
+                };
+
+                container.appendChild(buton);
+            });
+        }
+
+        /* =========================
+           3. FORMATAREA PREȚULUI
+        ========================= */
+
+        function formateazaPret(pret) {
+            return new Intl.NumberFormat("ro-MD", {
+                style: "currency",
+                currency: "MDL",
+                maximumFractionDigits: 2
+            }).format(Number(pret) || 0);
+        }
+
+        /* =========================
+           4. AFIȘAREA PRODUSELOR
+        ========================= */
+
+        function afiseazaProduse() {
+            const container = document.getElementById("listaProduse");
+
+            const cautare = document
+                .getElementById("cautare")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const material = document.getElementById("filtruMaterial").value;
+
+            const filtrate = produse.filter(produs => {
+                const text = (
+                    produs.nume + " " +
+                    produs.descriere + " " +
+                    produs.categorie
+                ).toLowerCase();
+
+                const corespundeCautarii = text.includes(cautare);
+
+                const corespundeMaterialului =
+                    material === "" || produs.material === material;
+
+                const corespundeCategoriei =
+                    categorieSelectata === "Toate" ||
+                    produs.categorie === categorieSelectata;
+
+                return (
+                    corespundeCautarii &&
+                    corespundeMaterialului &&
+                    corespundeCategoriei
+                );
+            });
+
+            container.innerHTML = "";
+
+            if (filtrate.length === 0) {
+                container.innerHTML = `
+                    <div class="fara-produse">
+                        <h3>Nu am găsit produse.</h3>
+                        <p>Încearcă altă căutare sau altă categorie.</p>
+                    </div>
+                `;
+
+                return;
+            }
+
+            filtrate.forEach(produs => {
+                const articol = document.createElement("article");
+
+                articol.className = "produs";
+
+                const imagine = document.createElement("img");
+
+                imagine.src = produs.imagine || "";
+                imagine.alt = produs.nume;
+                imagine.loading = "lazy";
+
+                imagine.onerror = function () {
+                    this.style.display = "none";
+                };
+
+                const imagineContainer = document.createElement("div");
+                imagineContainer.className = "produs-imagine";
+
+                const eticheta = document.createElement("span");
+                eticheta.className = "eticheta";
+                eticheta.textContent = produs.material;
+
+                imagineContainer.append(imagine, eticheta);
+
+                const info = document.createElement("div");
+                info.className = "produs-info";
+
+                const tip = document.createElement("div");
+                tip.className = "produs-categorie";
+                tip.textContent = produs.categorie;
+
+                const nume = document.createElement("h3");
+                nume.textContent = produs.nume;
+
+                const descriere = document.createElement("p");
+                descriere.className = "produs-descriere";
+                descriere.textContent = produs.descriere;
+
+                const pret = document.createElement("div");
+                pret.className = "produs-pret";
+                pret.textContent = formateazaPret(produs.pret);
+
+                const buton = document.createElement("button");
+                buton.className = "detalii-button";
+                buton.textContent = "Vezi detalii";
+
+                buton.onclick = () => afiseazaDetalii(produs.id);
+
+                info.append(tip, nume, descriere, pret, buton);
+
+                articol.append(imagineContainer, info);
+
+                container.appendChild(articol);
+            });
+        }
+
+        /* =========================
+           5. DETALII DESPRE PRODUS
+        ========================= */
+
+        function afiseazaDetalii(id) {
+            const produs = produse.find(p => p.id === id);
+
+            if (!produs) return;
+
+            const mesaj = [
+                "Produs: " + produs.nume,
+                "Material: " + produs.material,
+                "Categorie: " + produs.categorie,
+                "Preț: " + formateazaPret(produs.pret),
+                "Greutate: " + (produs.greutate || "Nespecificată") + " g",
+                "Probă: " + (produs.proba || "Nespecificată"),
+                "Filială: " + (produs.filiala || "Contactați magazinul"),
+                "",
+                "Descriere:",
+                produs.descriere
+            ].join("\n");
+
+            alert(mesaj);
+        }
+
+        /* =========================
+           6. ADMINISTRARE DEMO
+        ========================= */
+
+        function deschideAdministrare() {
+            document.getElementById("modalAdmin").classList.add("activ");
+
+            afiseazaListaAdmin();
+        }
+
+        function inchideAdministrare() {
+            document.getElementById("modalAdmin").classList.remove("activ");
+        }
+
+        function reseteazaFormular() {
+            document.getElementById("formularProdus").reset();
+            document.getElementById("produsId").value = "";
+            document.getElementById("mesajAdmin").textContent = "";
+        }
+
+        document
+            .getElementById("formularProdus")
+            .addEventListener("submit", function (eveniment) {
+                eveniment.preventDefault();
+
+                const id = document.getElementById("produsId").value;
+
+                const nume = document
+                    .getElementById("numeProdus")
+                    .value.trim();
+
+                const pret = Number(
+                    document.getElementById("pretProdus").value
+                );
+
+                if (!nume || !Number.isFinite(pret) || pret < 0) {
+                    alert("Completează denumirea și un preț valid.");
+                    return;
+                }
+
+                const produs = {
+                    id: id ? Number(id) : Date.now(),
+
+                    nume: nume,
+
+                    material: document.getElementById("materialProdus").value,
+
+                    categorie: document.getElementById("categorieProdus").value,
+
+                    pret: pret,
+
+                    descriere: document
+                        .getElementById("descriereProdus")
+                        .value.trim(),
+
+                    imagine: document
+                        .getElementById("imagineProdus")
+                        .value.trim(),
+
+                    greutate: document
+                        .getElementById("greutateProdus")
+                        .value,
+
+                    proba: document
+                        .getElementById("probaProdus")
+                        .value.trim(),
+
+                    filiala: document.getElementById("filialaProdus").value
+                };
+
+                if (id) {
+                    const index = produse.findIndex(
+                        p => p.id === Number(id)
+                    );
+
+                    if (index !== -1) {
+                        produse[index] = produs;
+                    }
+                } else {
+                    produse.unshift(produs);
+                }
+
+                if (!salveazaProduse()) {
+                    produse = incarcaProduse();
+                    return;
+                }
+
+                document.getElementById("mesajAdmin").textContent =
+                    "Produsul a fost salvat cu succes.";
+
+                reseteazaFormular();
+
+                afiseazaProduse();
+                afiseazaListaAdmin();
+            });
+
+        /* =========================
+           7. LISTA ADMINISTRATORULUI
+        ========================= */
+
+        function afiseazaListaAdmin() {
+            const container = document.getElementById("listaAdmin");
+
+            container.innerHTML = "";
+
+            if (produse.length === 0) {
+                container.textContent = "Nu există produse.";
+                return;
+            }
+
+            produse.forEach(produs => {
+                const rand = document.createElement("div");
+                rand.className = "admin-produs";
+
+                const nume = document.createElement("span");
+
+                nume.textContent =
+                    produs.nume + " — " + formateazaPret(produs.pret);
+
+                const actiuni = document.createElement("div");
+
+                const editare = document.createElement("button");
+                editare.textContent = "Editează";
+
+                editare.onclick = () => editeazaProdus(produs.id);
+
+                const stergere = document.createElement("button");
+                stergere.textContent = "Șterge";
+                stergere.className = "sterge";
+
+                stergere.onclick = () => stergeProdus(produs.id);
+
+                actiuni.append(editare, stergere);
+
+                rand.append(nume, actiuni);
+
+                container.appendChild(rand);
+            });
+        }
+
+        /* =========================
+           8. EDITAREA PRODUSELOR
+        ========================= */
+
+        function editeazaProdus(id) {
+            const produs = produse.find(p => p.id === id);
+
+            if (!produs) return;
+
+            document.getElementById("produsId").value = produs.id;
+            document.getElementById("numeProdus").value = produs.nume;
+            document.getElementById("materialProdus").value = produs.material;
+            document.getElementById("categorieProdus").value = produs.categorie;
+            document.getElementById("pretProdus").value = produs.pret;
+            document.getElementById("descriereProdus").value = produs.descriere;
+            document.getElementById("imagineProdus").value = produs.imagine;
+            document.getElementById("greutateProdus").value = produs.greutate;
+            document.getElementById("probaProdus").value = produs.proba;
+            document.getElementById("filialaProdus").value = produs.filiala;
+
+            document.getElementById("formularProdus").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            document.getElementById("mesajAdmin").textContent =
+                "Editezi produsul: " + produs.nume;
+        }
+
+        /* =========================
+           9. ȘTERGEREA PRODUSELOR
+        ========================= */
+
+        function stergeProdus(id) {
+            const produs = produse.find(p => p.id === id);
+
+            if (!produs) return;
+
+            const confirmare = confirm(
+                "Sigur dorești să ștergi produsul „" +
+                produs.nume +
+                "”?"
+            );
+
+            if (!confirmare) return;
+
+            const listaVeche = produse;
+
+            produse = produse.filter(p => p.id !== id);
+
+            if (!salveazaProduse()) {
+                produse = listaVeche;
+                return;
+            }
+
+            afiseazaProduse();
+            afiseazaListaAdmin();
+
+            document.getElementById("mesajAdmin").textContent =
+                "Produsul a fost șters.";
+        }
+
+        /* =========================
+           10. INIȚIALIZARE
+        ========================= */
+
+        document.getElementById("an").textContent =
+            new Date().getFullYear();
+
+        afiseazaCategorii();
+        afiseazaProduse();
+
+        /* Închide fereastra dacă utilizatorul
+           apasă în afara formularului. */
+
+        document
+            .getElementById("modalAdmin")
+            .addEventListener("click", function (eveniment) {
+                if (eveniment.target === this) {
+                    inchideAdministrare();
+                }
+            });
+    </script>
+
+</body>
+</html>
